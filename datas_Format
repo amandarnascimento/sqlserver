@@ -1,0 +1,23 @@
+
+Formatos de datas utilizando SQL Server:
+
+
+->  FORMAT(t.data, 'dd/MM/yyyy') as nome
+-> CONVERT(varchar(10),t.data,103) as nome
+-> WHEN MONTH(t.datanasc) = MONTH(CONVERT(date, GETDATE())) THEN ANIVERSARIO_MES
+
+-> t.DATAINICIO >= (GETDATE() - CAST((t.DATAFIM -  t.DATAINICIO)AS INT)+1 )
+AND t.DATAFIM < GETDATE() + (CAST((t.DATAFIM -  t.DATAINICIO)AS INT)+1) as nome
+
+
+-> EOMONTH(t.datanasc) as 'Último dia mês'
+-> DATENAME(MONTH, t.datanasc) as 'Dia semana'
+-> DATEDIFF(YEAR, t.datanasc, GETDATE()) -1 as idade
+-> DATEDIFF(HOUR, t.datanasc, GETDATE()) -1 as horas
+-> DATEDIFF(MINUTE, t.datanasc, GETDATE()) -1 as minuto
+-> DATEDIFF(SECOND, t.datanasc, GETDATE()) -1 as segundos
+
+-> FORMAT(GETDATE() -3, 'dd/MM/yyyy') as 'Menos 3 dias'
+-> FORMAT(dateadd(MONTH, -1, GETDATE()), 'MM-yyyy') as Mes_Ant
+-> FORMAT(dateadd(YEAR, -1, GETDATE()), 'MM-yyyy') as Ano_Ant
+-> FORMAT(dateadd(DAY, -1, GETDATE()), 'MM-yyyy') as Dia_Ant
