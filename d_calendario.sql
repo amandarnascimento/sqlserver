@@ -66,6 +66,6 @@ BEGIN
     VALUES (@DataInicio);
 END
 
--- Adicionando a coluna ID à consulta
+
 SELECT *
   FROM D_CALENDARIO;
