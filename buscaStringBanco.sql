@@ -1,6 +1,6 @@
 ---Buscar por qualquer string em um banco de dados
 
-DECLARE @SearchValue NVARCHAR(100) = 'unimed belo horizonte'
+DECLARE @SearchValue NVARCHAR(100) = 'string aqui'
 DECLARE @SQL NVARCHAR(MAX) = ''
 DECLARE @TableName NVARCHAR(128)
 DECLARE @ColumnName NVARCHAR(128)
@@ -28,7 +28,7 @@ BEGIN
 
     WHILE @@FETCH_STATUS = 0
     BEGIN
-        -- Verificar se o tipo de dados È compatÌvel com a funÁ„o LIKE
+        -- Verificar se o tipo de dados √© compat√≠vel com a fun√ß√£o LIKE
         IF @DataType IN ('varchar', 'nvarchar', 'char', 'nchar', 'text', 'ntext')
         BEGIN
             -- Construir a consulta SQL dinamicamente
@@ -51,12 +51,12 @@ END
 CLOSE table_cursor
 DEALLOCATE table_cursor
 
--- Remover o ˙ltimo 'UNION ALL'
+-- Remover o √∫ltimo 'UNION ALL'
 IF LEN(@SQL) > 0
 BEGIN
     SET @SQL = LEFT(@SQL, LEN(@SQL) - 10)
 
-    -- Executar a consulta din‚mica
+    -- Executar a consulta din√¢mica
     EXEC sp_executesql @SQL
 END
 ELSE
