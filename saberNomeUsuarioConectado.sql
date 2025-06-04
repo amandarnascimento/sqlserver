@@ -1,0 +1,1 @@
+SELECT SYSTEM_USER AS Login_Atual, USER_NAME() AS Usuario_Banco;
